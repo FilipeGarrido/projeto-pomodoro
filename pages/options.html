@@ -20,16 +20,17 @@
         <header></header>
         <main>
             <div id="main-form" class="form">
-                <form action="options.html" method="get" onsubmit="setNewConfig">
+                <form action="options.html" method="get">
                     <labe class="fm-label" for="pom-time">Pomodoro Time:</labe>
                     <input id="pom-time" name="pom-time" type="number" value="30" min="1" default="30" /><br />
                     <labe class="fm-label" for="res-time">Rest Time:</labe>
                     <input id="res-time" name="res-time" type="number" value="5" min="1" default="5" /><br />
-                    <input class="btn btn-reset" id="changetBtn" type="submit" value="Change" />
+                    <input class="btn btn-reset" id="changeBtn" type="submit" value="Change" />
                 </form>
             </div>
         </main>
     </div>
+
     <script type="module" src="../main.js"></script>
     <script>
         document.getElementById('opt').style =

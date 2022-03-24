@@ -1,13 +1,34 @@
 import './styles/main.scss';
 import './styles/responsive.scss';
 
-var restTimer = 5;
-var pomTimer = 30;
-var minutes_count = 0;
-var show_minutes = '';
-var show_seconds = '';
+console.log(localStorage.getItem('resTimer'));
+
+if (localStorage.getItem('resTimer') != null) {
+    var restTimer = localStorage.getItem('resTimer');
+    if (document.querySelector('#res-time') != null) {
+        document.querySelector('#res-time').value =
+            localStorage.getItem('resTimer');
+    }
+} else {
+    var restTimer = 5;
+    localStorage.setItem('resTimer', restTimer);
+}
+
+if (localStorage.getItem('pomTimer') != null) {
+    var pomTimer = localStorage.getItem('pomTimer');
+    if (document.querySelector('#pom-time') != null) {
+        document.querySelector('#pom-time').value =
+            localStorage.getItem('pomTimer');
+    }
+} else {
+    var pomTimer = 30;
+    localStorage.setItem('pomTimer', pomTimer);
+}
+var minutesCount = 0;
+var showMinutes = '';
+var showSeconds = '';
 var seconds = 0;
-var show_time = '';
+var showTime = '';
 var stop = false;
 var start = false;
 const url = document.location.href;
@@ -24,70 +45,76 @@ function startTimer() {
         }
 
         if (seconds < 0) {
-            minutes_count--;
+            minutesCount--;
             seconds = 59;
         }
 
-        if (minutes_count >= 0) {
-            show_minutes = ('000' + minutes_count).slice(-2);
-            show_seconds = ('000' + seconds).slice(-2);
-            show_time = show_minutes + ':' + show_seconds;
+        if (minutesCount >= 0) {
+            showMinutes = ('000' + minutesCount).slice(-2);
+            showSeconds = ('000' + seconds).slice(-2);
+            showTime = showMinutes + ':' + showSeconds;
         } else {
-            show_time = '00:00';
+            showTime = '00:00';
             clearInterval(timer);
             alarm.play();
         }
 
         seconds--;
 
-        document.getElementById('clock').innerHTML = show_time;
+        document.getElementById('clock').innerHTML = showTime;
     }, 10);
 }
 
 function resetTimer() {
     if (url == 'http://localhost:3000/pages/rest.html') {
-        minutes_count = restTimer;
+        minutesCount = restTimer;
     } else {
-        minutes_count = pomTimer;
+        minutesCount = pomTimer;
     }
     stop = true;
     start = false;
     seconds = 0;
-    show_minutes = ('000' + minutes_count).slice(-2);
-    document.getElementById('clock').innerHTML = show_minutes + ':00';
-}
-
-document.querySelector("#main-form").onclick = function (event) {
-    event.preventDefault();
-    console.log("dasdf");
-
-    const setting = "30" // vai pegar do input
-    localStorage.setItem("time", setting)
-}
-
-document.getElementById('startBtn').onclick = function() {
-    if (!start) {
-        startTimer();
-        start = true;
-        stop = false;
-    } else if (stop) {
-        stop = false;
-        startTimer();
+    showMinutes = ('000' + minutesCount).slice(-2);
+    if (document.querySelector('#clock') != null) {
+        document.getElementById('clock').innerHTML = showMinutes + ':00';
     }
-};
+}
 
-document.getElementById('resetBtn').onclick = function() {
-    resetTimer();
-};
+if (document.querySelector('#changeBtn') != null) {
+    document.querySelector('#changeBtn').onclick = function(event) {
+        localStorage.setItem('pomTimer', document.querySelector('#pom-time').value);
+        localStorage.setItem('resTimer', document.querySelector('#res-time').value);
+        alert('Valores alterados com sucesso!');
+        event.preventDefault();
+    };
+}
 
-document.getElementById('stopBtn').onclick = function() {
-    stop = true;
-    alarm.pause();
-    alarm.currentTime = 0;
-};
+if (document.getElementById('startBtn') != null) {
+    document.getElementById('startBtn').onclick = function() {
+        if (!start) {
+            startTimer();
+            start = true;
+            stop = false;
+        } else if (stop) {
+            stop = false;
+            startTimer();
+        }
+    };
+
+    document.getElementById('resetBtn').onclick = function() {
+        resetTimer();
+    };
+
+    document.getElementById('stopBtn').onclick = function() {
+        stop = true;
+        alarm.pause();
+        alarm.currentTime = 0;
+    };
+
+    window.onclick = function() {
+        alarm.pause();
+        alarm.currentTime = 0;
+    };
+}
 
 window.onload = resetTimer;
-window.onclick = function() {
-    alarm.pause();
-    alarm.currentTime = 0;
-};

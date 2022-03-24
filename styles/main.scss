@@ -54,11 +54,10 @@ header {
 div#bg-config {
     position: static;
     padding-bottom: 50px;
-    background-image: url('../_src/_img/pomodoro_logo.png');
+    background-image: url('../assets/img/pomodoro_logo.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
-    /*     background-color: blue; */
 }
 
 main {
@@ -149,8 +148,7 @@ form {
     text-align: center;
     width: 50%;
     margin: 0 auto;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 25%;
 }
 
 form label {
@@ -169,5 +167,6 @@ form input[type='number'] {
 }
 
 form input[type='submit'] {
-    margin-top: 100px;
+    margin-top: 20px;
+    margin-left: 0;
 }
