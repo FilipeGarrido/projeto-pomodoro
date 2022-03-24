@@ -57,9 +57,12 @@ function resetTimer() {
     document.getElementById('clock').innerHTML = show_minutes + ':00';
 }
 
-function setNewConfig(event) {
+document.querySelector("#main-form").onclick = function (event) {
     event.preventDefault();
-    /* console.log(event); */
+    console.log("dasdf");
+
+    const setting = "30" // vai pegar do input
+    localStorage.setItem("time", setting)
 }
 
 document.getElementById('startBtn').onclick = function() {
