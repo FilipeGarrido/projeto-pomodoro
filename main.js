@@ -62,7 +62,7 @@ function startTimer() {
         seconds--;
 
         document.getElementById('clock').innerHTML = showTime;
-    }, 10);
+    }, 1000);
 }
 
 function resetTimer() {
