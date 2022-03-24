@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav id="menu">
+            <ul>
+                <li><a id="pom" href="/index.html">Pomodoro</a></li>
+                <li><a id="res" href="/pages/rest.html">Rest</a></li>
+                <li><a id="opt" href="/pages/options.html">Options</a></li>
+            </ul>
+        </nav>
+        <header></header>
+        <main>
+            <div class="form">
+                <form action="options.html" method="get" onsubmit="setNewConfig">
+                    <labe class="fm-label" for="pom-time">Pomodoro Time:</labe>
+                    <input id="pom-time" name="pom-time" type="number" value="30" min="1" default="30" /><br />
+                    <labe class="fm-label" for="res-time">Rest Time:</labe>
+                    <input id="res-time" name="res-time" type="number" value="5" min="1" default="5" /><br />
+                    <input class="btn btn-reset" id="changetBtn" type="submit" value="Change" />
+                </form>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="../main.js"></script>
+    <script>
+        document.getElementById('opt').style =
+            'border-top-left-radius: 30%;' +
+            'border-top-right-radius: 30%;' +
+            'background-color: rgb(236, 212, 212);' +
+            'color: black;';
+    </script>
+</body>
+
+</html>

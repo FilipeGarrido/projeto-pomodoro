@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav id="menu">
+            <ul>
+                <li><a id="pom" href="/index.html">Pomodoro</a></li>
+                <li><a id="res" href="/pages/rest.html">Rest</a></li>
+                <li><a id="opt" href="/pages/options.html">Options</a></li>
+            </ul>
+        </nav>
+        <header></header>
+        <main>
+            <div id="timer">
+                <p id="clock"></p>
+            </div>
+            <div id="btns">
+                <button class="btn btn-start" id="startBtn">Start</button>
+                <button class="btn btn-stop" id="stopBtn">Stop</button>
+                <button class="btn btn-reset" id="resetBtn">Reset</button>
+            </div>
+            <div id="timer">
+                '<audio id="alarm">
+            <source
+              src="../_src/_audios/despertador-eletrônico.mp3"
+              type="audio/mp3"
+            />
+          </audio>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="../main.js"></script>
+    <script>
+        document.getElementById('res').style =
+            'border-top-left-radius: 30%;' +
+            'border-top-right-radius: 30%;' +
+            'background-color: rgb(236, 212, 212);' +
+            'color: black;';
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+@import 'variables';
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $bg-color;
+}
+
+div#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+nav#menu {
+    background-color: rgba(0, 0, 0, 0.7);
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+}
+
+nav#menu ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav#menu ul li {
+    display: inline;
+    list-style-type: none;
+}
+
+nav#menu ul li a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 150%;
+    color: aliceblue;
+    padding: 30px 40px;
+}
+
+nav#menu ul li a:hover {
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+    background-color: $bg-color;
+    color: black;
+}
+
+header {
+    position: static;
+    width: 100%;
+    height: 1px;
+}
+
+div#bg-config {
+    position: static;
+    padding-bottom: 50px;
+    background-image: url('../_src/_img/pomodoro_logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    /*     background-color: blue; */
+}
+
+main {
+    margin: 0 auto;
+    padding: 0;
+    width: 50%;
+}
+
+p {
+    padding-top: 25%;
+    font-weight: bold;
+    font-size: 800%;
+    text-align: center;
+    text-shadow: 5px 5px 5px rgb(158, 88, 88);
+}
+
+div#btns {
+    margin: 0 auto;
+    margin-left: -50px;
+    padding-top: 0;
+    text-align: center;
+}
+
+.btn {
+    border-radius: 15px;
+    font-size: 150%;
+    display: inline-block;
+    padding: 20px 30px;
+    font-size: 150%;
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+.btn-start {
+    background-color: $bg-button-start;
+    border: 5px solid $ln-button-start;
+    color: $ln-button-start;
+}
+
+.btn-start:hover {
+    background-color: $ln-button-start;
+    border: 5px solid $bg-button-start;
+    color: $bg-button-start;
+}
+
+.btn-stop {
+    background-color: $bg-button-stop;
+    border: 5px solid $ln-button-stop;
+    color: $ln-button-stop;
+}
+
+.btn-stop:hover {
+    background-color: $ln-button-stop;
+    border: 5px solid $bg-button-stop;
+    color: $bg-button-stop;
+}
+
+.btn-reset {
+    background-color: $bg-button-reset;
+    border: 5px solid $ln-button-reset;
+    color: $ln-button-reset;
+}
+
+.btn-reset:hover {
+    background-color: $ln-button-reset;
+    border: 5px solid $bg-button-reset;
+    color: $bg-button-reset;
+}
+
+.form {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.fm-label {
+    font-size: 150%;
+    padding: 0;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+#menuHidden {
+    display: none;
+}
+
+form {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+form label {
+    margin-bottom: 30px;
+}
+
+form input[type='number'] {
+    width: 80px;
+    padding: 10px;
+    border: 1px solid #cdc99b;
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 25px;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+form input[type='submit'] {
+    margin-top: 100px;
+}
